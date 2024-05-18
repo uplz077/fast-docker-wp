@@ -1,0 +1,29 @@
+version: "3"
+services:
+  wordpress:
+    image: wordpress:latest
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 8082:80
+    environment:
+      # replace the password, database and root password with your own
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: "wordpress"
+      WORDPRESS_DB_PASSWORD: "Cfpcoh2Nqqr6dHtKW"
+      WORDPRESS_DB_NAME: "wordpress"
+    volumes:
+      - ./app/wp-content:/var/www/html/wp-content/
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      # replace the password, database and root password with your own
+      MYSQL_DATABASE: "wordpress"
+      MYSQL_USER: "wordpress"
+      MYSQL_PASSWORD: "Cfpcoh2Nqqr6dHtKW"
+      MYSQL_ROOT_PASSWORD: "dHtKW4MDC1M34xOkej0VqFlFpZ"
+    volumes:
+      - ./app/db:/var/lib/mysql

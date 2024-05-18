@@ -1,0 +1,9 @@
+# dependencies
+.DS_Store
+.idea/
+
+# production
+app/db/
+app/dbdata/
+app/db_data/
+app/wp-content/uploads/
